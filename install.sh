@@ -1,6 +1,13 @@
 #!/bin/bash
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
+# Git
+ln -sf "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
+ln -sf "$DOTFILES/git/gitignore" "$HOME/.gitignore"
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+    echo "⚠️  Create ~/.gitconfig.local from git/gitconfig.local.example"
+fi
+
 # Ghostty
 mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
 ln -sf "$DOTFILES/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
