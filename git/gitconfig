@@ -1,0 +1,19 @@
+[user]
+	name = Manoj Mahapatra
+	email = mahapatra.manoj@hotmail.com
+	signingkey = ~/.ssh/id_ed25519_github_manojmahapatra.pub
+[core]
+	editor = code -w
+[color]
+	ui = auto
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
