@@ -11,3 +11,4 @@ Personal configuration files.
 ## Contents
 
 - `ghostty/` - [Ghostty](https://ghostty.org) terminal config
+- `zsh/` - Zsh config (oh-my-zsh + powerlevel10k)

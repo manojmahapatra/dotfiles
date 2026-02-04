@@ -1,0 +1,60 @@
+# Enable Powerlevel10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export PATH=/opt/homebrew/bin:$PATH
+export ZSH="$HOME/.oh-my-zsh"
+
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins=(
+    z
+    git
+    wd
+    docker
+    asdf
+    zsh-autosuggestions
+    zsh-completions 
+    zsh-history-substring-search 
+    zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# zsh extensions
+fpath=(~/.zsh-extensions/ $fpath)
+autoload -U $fpath[1]/*(.:t)
+autoload -Uz compinit
+compinit -C
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# navi
+eval "$(navi widget zsh)"
+
+# mise
+eval "$(mise activate zsh)"
+
+# Aliases
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias vs='open -a Visual\ Studio\ Code'
+alias python=/usr/bin/python3
+
+# Editor
+export EDITOR="code -w"
+
+# Node
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+
+# zsh-autosuggestions (homebrew)
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# p10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
