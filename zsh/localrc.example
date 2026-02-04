@@ -1,0 +1,9 @@
+# Copy to ~/.localrc for private/machine-specific config
+# This file is sourced by zshrc but not committed to dotfiles
+
+# Example: API keys, tokens
+# export GITHUB_TOKEN="xxx"
+# export OPENAI_API_KEY="xxx"
+
+# Example: Machine-specific paths
+# export PATH="$PATH:/some/local/path"

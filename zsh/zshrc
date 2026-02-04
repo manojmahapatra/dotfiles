@@ -23,6 +23,30 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt EXTENDED_HISTORY       # add timestamps
+setopt SHARE_HISTORY          # share across sessions
+setopt APPEND_HISTORY         # append instead of overwrite
+setopt INC_APPEND_HISTORY     # add immediately
+setopt HIST_IGNORE_ALL_DUPS   # no duplicates
+setopt HIST_REDUCE_BLANKS     # trim blanks
+setopt HIST_VERIFY            # show before executing
+
+# Completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'  # case insensitive
+zstyle ':completion:*' insert-tab pending
+
+# Options
+setopt CORRECT                # spell correction
+setopt COMPLETE_IN_WORD
+setopt NO_BEEP
+
+# Local config (private env vars, machine-specific settings)
+[[ -f ~/.localrc ]] && source ~/.localrc
+
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -43,6 +67,7 @@ eval "$(navi widget zsh)"
 eval "$(mise activate zsh)"
 
 # Aliases
+alias reload!='source ~/.zshrc'
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias vs='open -a Visual\ Studio\ Code'
 alias python=/usr/bin/python3
