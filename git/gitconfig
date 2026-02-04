@@ -1,7 +1,7 @@
 [user]
-	name = Manoj Mahapatra
-	email = mahapatra.manoj@hotmail.com
-	signingkey = ~/.ssh/id_ed25519_github_manojmahapatra.pub
+	name = 
+	email = 
+	signingkey = 
 [core]
 	editor = code -w
 [color]
